@@ -3,14 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIronLab</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AIronLab - AI чат-боты для вашего бизнеса</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --text-primary: #1a1a1a;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --accent: #667eea;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            overflow-x: hidden;
+        }
+
+        /* Хедер */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Логотип */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+
+        /* Для текстового логотипа, если нет изображения */
+        .logo-text {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Навигация */
+        nav {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: opacity 0.3s ease;
+            opacity: 0.7;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        /* Контейнер для кнопки справа */
+        .header-right {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* CTA кнопка */
+        .cta-button {
+            background: #000000;
+            color: white;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #1a1a1a;
+            transform: translateY(-1px);
+        }
+
+        /* Мобильное меню */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Адаптив для планшетов */
+        @media (max-width: 1024px) {
+            nav {
+                gap: 1.5rem;
+            }
+            
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Hero секция (временно для демонстрации) */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 1rem;
+                grid-template-columns: 1fr auto;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .header-right {
+                justify-content: center;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>AIronLab</h1>
-        <p>Добро пожаловать на мой сайт!</p>
+        <div class="header-container">
+            <!-- Логотип слева -->
+            <a href="/" class="logo">
+                <!-- <img src="path/to/your-logo.png" alt="AIronLab"> -->
+                AIronLab
+            </a>
+
+            <!-- Навигация по центру -->
+            <nav>
+                <a href="#services">Услуги</a>
+                <a href="#pricing">Цены</a>
+                <a href="#cases">Кейсы</a>
+                <a href="#updates">Блог</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+
+            <!-- Кнопка справа -->
+            <div class="header-right">
+                <a href="#contact" class="cta-button">Оставить заявку</a>
+            </div>
+        </div>
     </header>
-    <script src="script.js"></script>
+
+    <!-- Hero секция для демонстрации -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Чат-боты для консультации и поддержки клиентов</h1>
+            <p>Поддержка 24/7: бот решает 90% типовых запросов без участия менеджера</p>
+        </div>
+    </section>
+
+    <script>
+        // Мобильное меню
+        function toggleMobileMenu() {
+            const nav = document.getElementById('nav-menu');
+            nav.classList.toggle('active');
+        }
+
+        // Анимация хедера при скролле
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
 </body>
 </html>
