@@ -1,4 +1,101 @@
+# Операционная система
 .DS_Store
-node_modules/
-.env
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE и редакторы
 .vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.atom/
+.brackets.json
+*.swp
+*.swo
+*~
+
+# Логи
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Временные файлы
+*.tmp
+*.temp
+.cache/
+.sass-cache/
+
+# Node.js (если планируется использовать)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Сборка и деплой
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vercel/
+.netlify/
+
+# Переменные окружения
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Резервные копии
+*.bak
+*.backup
+*.old
+
+# Сжатые файлы
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Документы (если не нужны в репозитории)
+*.pdf
+*.doc
+*.docx
+*.psd
+*.ai
+*.sketch
+
+# Медиа файлы (если слишком большие)
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+
+# Favicon файлы (если генерируются автоматически)
+favicon-*.png
+apple-touch-icon-*.png
+mstile-*.png
+android-chrome-*.png
+
+# Тестирование
+coverage/
+.nyc_output/
+test-results/
+
+# Статистика и аналитика
+.awcache/
+.rpt2_cache/
+
+# Локальные настройки
+.localrc
+.local 
