@@ -361,47 +361,267 @@
             justify-content: center;
         }
 
-        .bot-avatar {
-            width: 200px;
-            height: 200px;
+        /* AI Network Visualization */
+        .ai-network {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        .central-ai-hub {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .ai-core {
+            width: 100px;
+            height: 100px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3rem;
             position: relative;
-            z-index: 2;
+            box-shadow: 0 0 30px rgba(82, 160, 92, 0.4);
         }
 
-        .chat-bubble {
+        .ai-ring {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 140px;
+            height: 140px;
+            border: 2px solid rgba(82, 160, 92, 0.3);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+
+        .ai-ring-2 {
+            top: -40px;
+            left: -40px;
+            width: 180px;
+            height: 180px;
+            animation-duration: 30s;
+            animation-direction: reverse;
+            border-color: rgba(49, 74, 52, 0.2);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* AI Nodes */
+        .ai-node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 3px solid var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            z-index: 5;
+        }
+
+        .ai-node:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(82, 160, 92, 0.5);
+            border-color: var(--primary-color);
+        }
+
+        .ai-node::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--text-primary);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .ai-node:hover::after {
+            opacity: 1;
+        }
+
+        /* Node positions */
+        .ai-node-1 { top: 50px; left: 100px; animation: float 6s ease-in-out infinite; }
+        .ai-node-2 { top: 50px; right: 100px; animation: float 6s ease-in-out infinite 1s; }
+        .ai-node-3 { top: 200px; right: 50px; animation: float 6s ease-in-out infinite 2s; }
+        .ai-node-4 { bottom: 50px; right: 100px; animation: float 6s ease-in-out infinite 3s; }
+        .ai-node-5 { bottom: 50px; left: 100px; animation: float 6s ease-in-out infinite 4s; }
+        .ai-node-6 { top: 200px; left: 50px; animation: float 6s ease-in-out infinite 5s; }
+
+        /* Connection Lines */
+        .connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .connection-line {
+            stroke: url(#lineGradient);
+            stroke-width: 2;
+            opacity: 0.6;
+            animation: pulse-line 3s ease-in-out infinite;
+        }
+
+        .line-1 { animation-delay: 0s; }
+        .line-2 { animation-delay: 0.5s; }
+        .line-3 { animation-delay: 1s; }
+        .line-4 { animation-delay: 1.5s; }
+        .line-5 { animation-delay: 2s; }
+        .line-6 { animation-delay: 2.5s; }
+
+        @keyframes pulse-line {
+            0%, 100% { opacity: 0.3; stroke-width: 2; }
+            50% { opacity: 0.8; stroke-width: 3; }
+        }
+
+        /* Data Particles */
+        .data-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .particle-1 {
+            top: 140px;
+            left: 170px;
+            animation: particle-move-1 4s ease-in-out infinite;
+        }
+
+        .particle-2 {
+            top: 140px;
+            right: 170px;
+            animation: particle-move-2 4s ease-in-out infinite 0.5s;
+        }
+
+        .particle-3 {
+            top: 240px;
+            right: 120px;
+            animation: particle-move-3 4s ease-in-out infinite 1s;
+        }
+
+        .particle-4 {
+            bottom: 140px;
+            right: 170px;
+            animation: particle-move-4 4s ease-in-out infinite 1.5s;
+        }
+
+        .particle-5 {
+            bottom: 140px;
+            left: 170px;
+            animation: particle-move-5 4s ease-in-out infinite 2s;
+        }
+
+        .particle-6 {
+            top: 240px;
+            left: 120px;
+            animation: particle-move-6 4s ease-in-out infinite 2.5s;
+        }
+
+        @keyframes particle-move-1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(80px, 110px) scale(1.5); }
+        }
+
+        @keyframes particle-move-2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-80px, 110px) scale(1.5); }
+        }
+
+        @keyframes particle-move-3 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-70px, 10px) scale(1.5); }
+        }
+
+        @keyframes particle-move-4 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-80px, -110px) scale(1.5); }
+        }
+
+        @keyframes particle-move-5 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(80px, -110px) scale(1.5); }
+        }
+
+        @keyframes particle-move-6 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(70px, 10px) scale(1.5); }
+        }
+
+        /* Metric Popups */
+        .metric-popup {
             position: absolute;
             background: white;
             padding: 1rem 1.5rem;
-            border-radius: 20px;
+            border-radius: 15px;
             box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            animation: float 4s ease-in-out infinite;
-            font-size: 0.9rem;
+            border: 2px solid var(--accent-color);
+            text-align: center;
+            animation: float 8s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .metric-popup:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
             font-weight: 500;
         }
 
-        .chat-bubble-1 {
-            top: 20%;
-            right: 10%;
+        .metric-1 {
+            top: 80px;
+            left: 20px;
             animation-delay: 0s;
         }
 
-        .chat-bubble-2 {
-            bottom: 30%;
-            left: 10%;
+        .metric-2 {
+            top: 150px;
+            right: 20px;
             animation-delay: 2s;
         }
 
-        .chat-bubble-3 {
-            top: 40%;
-            left: -10%;
-            animation-delay: 1s;
+        .metric-3 {
+            bottom: 100px;
+            left: 50px;
+            animation-delay: 4s;
         }
 
         /* Services Section */
@@ -799,15 +1019,48 @@
                 justify-content: center;
             }
 
-            .bot-avatar {
-                width: 150px;
-                height: 150px;
-                font-size: 3rem;
+            .ai-network {
+                width: 350px;
+                height: 350px;
             }
 
-            .chat-bubble {
-                font-size: 0.8rem;
+            .ai-core {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .ai-ring {
+                top: -15px;
+                left: -15px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .ai-ring-2 {
+                top: -25px;
+                left: -25px;
+                width: 130px;
+                height: 130px;
+            }
+
+            .ai-node {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+
+            .metric-popup {
                 padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .metric-value {
+                font-size: 1.2rem;
+            }
+
+            .metric-label {
+                font-size: 0.7rem;
             }
 
             .services-grid,
@@ -1309,6 +1562,87 @@
                 alert('Функция редактирования будет доступна в следующей версии!');
             });
         }
+
+        // AI Nodes interactivity
+        document.querySelectorAll('.ai-node').forEach(node => {
+            node.addEventListener('click', function() {
+                // Add pulse effect on click
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+                
+                // Add click effect
+                this.style.transform = 'scale(1.3)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
+                // Show tooltip longer
+                const tooltip = this.getAttribute('data-tooltip');
+                console.log(`Clicked on: ${tooltip}`);
+            });
+
+            // Enhanced hover effect
+            node.addEventListener('mouseenter', function() {
+                // Highlight connected lines
+                document.querySelectorAll('.connection-line').forEach(line => {
+                    line.style.opacity = '0.9';
+                    line.style.strokeWidth = '4';
+                });
+            });
+
+            node.addEventListener('mouseleave', function() {
+                // Reset lines
+                document.querySelectorAll('.connection-line').forEach(line => {
+                    line.style.opacity = '';
+                    line.style.strokeWidth = '';
+                });
+            });
+        });
+
+        // Metric popups interactivity
+        document.querySelectorAll('.metric-popup').forEach(metric => {
+            metric.addEventListener('click', function() {
+                const value = this.querySelector('.metric-value').textContent;
+                const label = this.querySelector('.metric-label').textContent;
+                
+                // Animate the metric
+                this.style.transform = 'scale(1.1)';
+                this.style.boxShadow = '0 0 30px rgba(82, 160, 92, 0.6)';
+                
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                }, 300);
+                
+                console.log(`Metric clicked: ${value} - ${label}`);
+            });
+        });
+
+        // Data particles interaction with mouse
+        document.addEventListener('mousemove', function(e) {
+            const particles = document.querySelectorAll('.data-particle');
+            particles.forEach((particle, index) => {
+                const rect = particle.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                const deltaX = e.clientX - centerX;
+                const deltaY = e.clientY - centerY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+                
+                if (distance < 100) {
+                    const force = (100 - distance) / 100;
+                    const moveX = (deltaX / distance) * force * 20;
+                    const moveY = (deltaY / distance) * force * 20;
+                    
+                    particle.style.transform = `translate(${moveX}px, ${moveY}px) scale(${1 + force})`;
+                } else {
+                    particle.style.transform = '';
+                }
+            });
+        });
 
         // Add loading states for buttons
         document.querySelectorAll('.btn').forEach(button => {
