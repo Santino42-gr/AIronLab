@@ -674,12 +674,13 @@
         .service-card {
             background: white;
             padding: 3rem 2rem;
-            border-radius: 20px;
+            border-radius: 24px;
             text-align: center;
             transition: all 0.4s ease;
             border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
 
         .service-card::before {
@@ -704,17 +705,43 @@
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-            padding: 1rem;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 8px 25px rgba(49, 74, 52, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.3s ease;
         }
 
         .service-card:hover .service-icon {
             transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(49, 74, 52, 0.4);
+        }
+
+        .service-card:hover .service-icon::before {
+            transform: scale(1);
         }
 
         .service-card h3 {
