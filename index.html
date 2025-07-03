@@ -249,7 +249,7 @@
         }
 
         .logo-image {
-            height: 40px;
+            height: 32px;
             width: auto;
             transition: all 0.3s ease;
         }
@@ -782,7 +782,7 @@
             }
 
             .logo-image {
-                height: 32px;
+                height: 28px;
             }
 
             .hero .container {
@@ -921,10 +921,59 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="bot-avatar pulse">🤖</div>
-                <div class="chat-bubble chat-bubble-1">Привет! Чем могу помочь?</div>
-                <div class="chat-bubble chat-bubble-2">Увеличил продажи на 45%</div>
-                <div class="chat-bubble chat-bubble-3">Работаю 24/7</div>
+                <div class="ai-network">
+                    <div class="central-ai-hub">
+                        <div class="ai-core pulse">🧠</div>
+                        <div class="ai-ring"></div>
+                        <div class="ai-ring ai-ring-2"></div>
+                    </div>
+                    
+                    <!-- Floating AI nodes -->
+                    <div class="ai-node ai-node-1" data-tooltip="Анализ данных">📊</div>
+                    <div class="ai-node ai-node-2" data-tooltip="Чат-бот">💬</div>
+                    <div class="ai-node ai-node-3" data-tooltip="Автоматизация">⚙️</div>
+                    <div class="ai-node ai-node-4" data-tooltip="Аналитика">📈</div>
+                    <div class="ai-node ai-node-5" data-tooltip="Интеграции">🔗</div>
+                    <div class="ai-node ai-node-6" data-tooltip="Машинное обучение">🤖</div>
+                    
+                    <!-- Connection lines -->
+                    <svg class="connection-lines" viewBox="0 0 500 500">
+                        <defs>
+                            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="rgba(82, 160, 92, 0.8)"/>
+                                <stop offset="100%" stop-color="rgba(49, 74, 52, 0.8)"/>
+                            </linearGradient>
+                        </defs>
+                        <line class="connection-line line-1" x1="250" y1="250" x2="150" y2="150"/>
+                        <line class="connection-line line-2" x1="250" y1="250" x2="350" y2="150"/>
+                        <line class="connection-line line-3" x1="250" y1="250" x2="400" y2="250"/>
+                        <line class="connection-line line-4" x1="250" y1="250" x2="350" y2="350"/>
+                        <line class="connection-line line-5" x1="250" y1="250" x2="150" y2="350"/>
+                        <line class="connection-line line-6" x1="250" y1="250" x2="100" y2="250"/>
+                    </svg>
+                    
+                    <!-- Data particles -->
+                    <div class="data-particle particle-1"></div>
+                    <div class="data-particle particle-2"></div>
+                    <div class="data-particle particle-3"></div>
+                    <div class="data-particle particle-4"></div>
+                    <div class="data-particle particle-5"></div>
+                    <div class="data-particle particle-6"></div>
+                </div>
+                
+                <!-- Interactive metrics -->
+                <div class="metric-popup metric-1">
+                    <div class="metric-value">80%</div>
+                    <div class="metric-label">Экономия времени</div>
+                </div>
+                <div class="metric-popup metric-2">
+                    <div class="metric-value">40%</div>
+                    <div class="metric-label">Рост прибыли</div>
+                </div>
+                <div class="metric-popup metric-3">
+                    <div class="metric-value">24/7</div>
+                    <div class="metric-label">Работа без перерывов</div>
+                </div>
             </div>
         </div>
         <button class="edit-button">Вернуться к редактированию</button>
