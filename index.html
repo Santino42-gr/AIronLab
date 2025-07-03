@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blog.css">
     
     <style>
         :root {
@@ -1212,7 +1213,7 @@
                 <li><a href="#services">Услуги</a></li>
                 <li><a href="#about">Кейсы</a></li>
                 <li><a href="#portfolio">FAQs</a></li>
-                <li><a href="#contact">Блог</a></li>
+                <li><a href="#blog">Блог</a></li>
             </ul>
             <button class="cta-button">Оставить заявку</button>
             <button class="nav-toggle" id="navToggle">☰</button>
@@ -1416,6 +1417,40 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция блога -->
+    <section class="blog-section" id="blog">
+        <div class="blog-container">
+            <div class="blog-header">
+                <h2 class="blog-title">Блог</h2>
+                <p class="blog-subtitle">
+                    Делимся опытом, идеями и полезными материалами о разработке и технологиях
+                </p>
+            </div>
+
+            <!-- Состояние загрузки -->
+            <div id="blog-loader" style="display: none;">
+                <p>Загружаем статьи...</p>
+            </div>
+
+            <!-- Ошибка загрузки -->
+            <div id="blog-error" style="display: none;">
+                Не удалось загрузить статьи. Попробуйте позже.
+            </div>
+
+            <!-- Контейнер для статей -->
+            <div id="blog-posts">
+                <!-- Статьи будут загружаться сюда через JavaScript -->
+            </div>
+
+            <!-- Кнопка обновления (опционально) -->
+            <div style="text-align: center; margin-top: 40px;">
+                <button onclick="refreshBlog()" class="read-more-btn">
+                    Обновить статьи
+                </button>
             </div>
         </div>
     </section>
@@ -1752,5 +1787,8 @@
             });
         });
     </script>
+    
+    <!-- Подключение скриптов блога -->
+    <script src="blog.js"></script>
 </body>
 </html> 
