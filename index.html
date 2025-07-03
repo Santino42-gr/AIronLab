@@ -586,10 +586,22 @@
             box-shadow: var(--shadow);
             border: 2px solid var(--accent-color);
             text-align: center;
-            animation: float 8s ease-in-out infinite;
             cursor: pointer;
             transition: all 0.3s ease;
             z-index: 15;
+        }
+
+        /* Анимация float для metric-1 и metric-2 */
+        .metric-1, .metric-2 {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .metric-1 {
+            animation-delay: 0s;
+        }
+
+        .metric-2 {
+            animation-delay: 2s;
         }
 
         .metric-popup:hover {
@@ -600,6 +612,20 @@
         .metric-3:hover {
             transform: translateX(-50%) translateY(-5px) scale(1.05);
             box-shadow: var(--shadow-hover);
+        }
+
+        /* Специальная анимация для центрированного блока */
+        .metric-3 {
+            animation: float-centered 8s ease-in-out infinite 4s;
+        }
+
+        @keyframes float-centered {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0px);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
         }
 
 
@@ -620,20 +646,17 @@
         .metric-1 {
             top: -30px;
             left: 20px;
-            animation-delay: 0s;
         }
 
         .metric-2 {
             top: -30px;
             right: 20px;
-            animation-delay: 2s;
         }
 
         .metric-3 {
             bottom: -50px;
             left: 50%;
             transform: translateX(-50%);
-            animation-delay: 4s;
         }
 
         /* Services Section */
