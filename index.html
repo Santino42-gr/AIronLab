@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Bot Agency - Умные чат-боты для вашего бизнеса</title>
-    <meta name="description" content="Создаем умных чат-ботов для автоматизации клиентского сервиса. Увеличиваем конверсию на 40% и сокращаем время ответа до 2 секунд.">
+    <title>AIronLab - Автоматизация бизнеса с ИИ | Экономия до 40% за 5 дней</title>
+    <meta name="description" content="Освободите 80% времени команды с AIronLab. Автоматизируем рутину вашего бизнеса с помощью ИИ-технологий. Экономия до 40% за 5 дней.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -118,6 +118,27 @@
             animation: float 6s ease-in-out infinite;
         }
 
+        .edit-button {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .edit-button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            transform: translateY(-2px);
+        }
+
         /* Utility Classes */
         .gradient-text {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
@@ -227,13 +248,14 @@
             margin: 0 auto;
         }
 
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .logo-image {
+            height: 40px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
         }
 
         .nav-menu {
@@ -263,6 +285,23 @@
 
         .nav-menu a:hover::after {
             width: 100%;
+        }
+
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 2rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(49, 74, 52, 0.3);
         }
 
         .nav-toggle {
@@ -734,8 +773,16 @@
                 display: flex;
             }
 
+            .cta-button {
+                display: none;
+            }
+
             .nav-toggle {
                 display: block;
+            }
+
+            .logo-image {
+                height: 32px;
             }
 
             .hero .container {
@@ -844,14 +891,15 @@
     <header class="header" id="header">
         <nav class="nav">
             <div class="nav-logo">
-                <span class="logo-text">AI Bot Agency</span>
+                <img src="logo.png" alt="AIronLab" class="logo-image">
             </div>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#services">Услуги</a></li>
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#portfolio">Портфолио</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#about">Кейсы</a></li>
+                <li><a href="#portfolio">FAQs</a></li>
+                <li><a href="#contact">Блог</a></li>
             </ul>
+            <button class="cta-button">Оставить заявку</button>
             <button class="nav-toggle" id="navToggle">☰</button>
         </nav>
     </header>
@@ -861,16 +909,15 @@
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Создаем <span class="gradient-text">умных чат-ботов</span> 
-                    для вашего бизнеса
+                    Экономия до <span class="gradient-text">40% за 5 дней</span> — 
+                    автоматизируем рутину вашего бизнеса с ИИ
                 </h1>
                 <p class="hero-description">
-                    Автоматизируйте клиентский сервис с помощью ИИ-технологий. 
-                    Увеличьте конверсию на 40% и сократите время ответа до 2 секунд.
+                    Освободите 80% времени вашей команды — наши чат-боты 
+                    возьмут рутину на себя, увеличивая заявки и лояльность клиентов
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary">Получить консультацию</button>
-                    <button class="btn btn-secondary">Посмотреть демо</button>
+                    <button class="btn btn-primary">Оставить заявку</button>
                 </div>
             </div>
             <div class="hero-visual">
@@ -880,6 +927,7 @@
                 <div class="chat-bubble chat-bubble-3">Работаю 24/7</div>
             </div>
         </div>
+        <button class="edit-button">Вернуться к редактированию</button>
     </section>
 
     <!-- Services Section -->
@@ -1027,8 +1075,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>AI Bot Agency</h3>
-                    <p>Создаем будущее клиентского сервиса с помощью передовых ИИ-технологий</p>
+                    <h3>AIronLab</h3>
+                    <p>Автоматизируем рутину вашего бизнеса с помощью передовых ИИ-технологий</p>
                 </div>
                 <div class="footer-section">
                     <h4>Контакты</h4>
@@ -1045,7 +1093,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 AI Bot Agency. Все права защищены.</p>
+                <p>&copy; 2024 AIronLab. Все права защищены.</p>
             </div>
         </div>
     </footer>
@@ -1194,6 +1242,24 @@
                 }, 3000);
             }, 2000);
         });
+
+        // Header CTA button functionality
+        const headerCtaButton = document.querySelector('.cta-button');
+        if (headerCtaButton) {
+            headerCtaButton.addEventListener('click', () => {
+                document.querySelector('#contact').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Edit button functionality
+        const editButton = document.querySelector('.edit-button');
+        if (editButton) {
+            editButton.addEventListener('click', () => {
+                alert('Функция редактирования будет доступна в следующей версии!');
+            });
+        }
 
         // Add loading states for buttons
         document.querySelectorAll('.btn').forEach(button => {
