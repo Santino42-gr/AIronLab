@@ -368,6 +368,7 @@
             width: 600px;
             height: 500px;
             margin: 0 auto;
+            padding: 40px 20px;
         }
 
         .central-ai-hub {
@@ -596,6 +597,11 @@
             box-shadow: var(--shadow-hover);
         }
 
+        .metric-3:hover {
+            transform: translateX(-50%) translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
         .metric-value {
             font-size: 1.5rem;
             font-weight: 700;
@@ -610,20 +616,21 @@
         }
 
         .metric-1 {
-            top: -10px;
-            left: -20px;
+            top: -30px;
+            left: 20px;
             animation-delay: 0s;
         }
 
         .metric-2 {
-            top: -10px;
-            right: -20px;
+            top: -30px;
+            right: 20px;
             animation-delay: 2s;
         }
 
         .metric-3 {
-            bottom: -10px;
-            right: 30%;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
             animation-delay: 4s;
         }
 
